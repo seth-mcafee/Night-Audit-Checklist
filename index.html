@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Auditor</title>
+</head>
+<body>
+    <details>
+        <summary>Antes del Cierre</summary>
+        <form action="POST">
+
+            <input type="checkbox" name="novedades" id="novedades">
+            <label for="novedades">Preguntar novedades</label>
+            <br>
+            <input type="checkbox" name="desayunos" id="desayunos">
+            <label for="desayunos">Punto de venta Desayunos</label>
+            <br>
+            <input type="checkbox" name="bar" id="bar">
+            <label for="bar">Punto de venta Bar Piscina</label>
+            <br>
+            <input type="checkbox" name="spa" id="spa">
+            <label for="spa">Punto de venta Spa</label>
+            <br>
+            <input type="checkbox" name="trasluz" id="trasluz">
+            <label for="trasluz">Punto de venta Trasluz</label>
+            <br>
+            <input type="checkbox" name="roomservice" id="roomservice">
+            <label for="roomservice">Punto de venta Room Service</label>
+            <br>
+            <input type="checkbox" name="pagosacuenta" id="pagosacuenta">
+            <label for="pagosacuenta">Imprimir Pagos a Cuenta (preview y grand total a 0)</label>
+            <br>
+            <input type="checkbox" name="ratevariance" id="ratevariance">
+            <label for="ratevariance">Imprimir Rate Variance (marcar occupied y inclusive amount no debe ser menor a 100)</label>
+            <br>
+            <input type="checkbox" name="puntoseurosreservas" id="puntoseurosreservas">
+            <label for="puntoseurosreservas">Imprimir Puntos + Euros Reservas (preview y grand total a 0)</label>
+            <br>
+            <input type="checkbox" name="lavanderia" id="lavanderia">
+            <label for="lavanderia">Lavandería (comprobar si está cobrado, si no, hacerlo. Preview)</label>
+            <br>
+            <input type="checkbox" name="parking" id="parking">
+            <label for="parking">Parking (Traces, Cobro. Reservation Traces --> fecha cierre a fecha cierre, departments: parking y Preview)</label>
+            <br>
+            <input type="checkbox" name="cargarbicis" id="cargarbicis">
+            <label for="cargarbicis">Cargar bicis</label>
+            <br>
+            <input type="checkbox" name="tracescomplete" id="tracescomplete">
+            <label for="tracescomplete">Bookings--> Reservation Workspace --> Traces --> Search --> Complete a todos menos parking</label>
+            <br>
+            <input type="checkbox" name="regcards" id="regcards">
+            <label for="regcards">Ordenar reg cards por nª hab.</label>
+            <br>
+            <input type="checkbox" name="imprimirportadaregcards" id="imprimirportadaregcards">
+            <label for="imprimirportadaregcards">Imprimir portada regcards</label>
+            <br>
+            
+
+            
+
+            <!-- Botón para resetear -->
+            <br>
+            <br>
+            <button type="reset">resetear</button>
+        </form>
+
+        
+    </details>
+    <br>
+    <br>
+    <br>
+    <details>
+        <summary>Cierre</summary>
+        <form action="POST">
+            <input type="checkbox" name="cajarecepcionnoche" id="cajarecepcionnoche">
+            <label for="cajarecepcionnoche">Arqueo de caja por turno con los pos (0, correcto y visas mirar que cuadre)</label>
+            <br>
+            <input type="checkbox" name="comprobarllegadas" id="comprobarllegadas">
+            <label for="comprobarllegadas">Comprobar Llegadas con reg cards ordenadas</label>
+            <br>
+            <input type="checkbox" name="archivarregcards" id="archivarregcards">
+            <label for="archivarregcards">Archivar regcards</label>
+            <br>
+            <input type="checkbox" name="cancelarreservas" id="cancelarreservas">
+            <label for="cancelarreservas">Cancelar Reservas Ficticias</label>
+            <br>
+            <input type="checkbox" name="regcardsnoshow" id="regcardsnoshow">
+            <label for="regcardsnoshow">Imprimir Reg cards No show</label>
+            <br>
+            <input type="checkbox" name="policeincomplete" id="policeincomplete">
+            <label for="policeincomplete">Rellenar el Police Incomplete</label>
+            <br>
+
+            <!--End Of Day-->
+            <input type="checkbox" name="extenderPM" id="extenderPM">
+            <label for="extenderPM">Extender 10 días más las PM</label>
+            <br>
+            <input type="checkbox" name="startend" id="startend">
+            <label for="startend">Start End Of Day, check out zero balance departures</label>
+            <br>
+            <input type="checkbox" name="imprimirendofday" id="imprimirendofday">
+            <label for="imprimirendofday">Imprimir reports End Of Day</label>
+            <br>
+            <input type="checkbox" name="cierredatafonos" id="cierredatafonos">
+            <label for="cierredatafonos">Cerrar Datáfonos y Ordenar visas datáfonos</label>
+            <br>
+            <input type="checkbox" name="entregacaja" id="entregacaja">
+            <label for="entregacaja">Rellenar, Archivar y Imprimir Caja y Entrega de caja (OK,0,Payment Total)</label>
+            <br>
+            <input type="checkbox" name="ingresoefectivo" id="ingresoefectivo">
+            <label for="ingresoefectivo">Ingresar el efectivo mirando Entrega de Caja 2 y complementando intervención caja.</label>
+            <br>
+            <input type="checkbox" name="informeshsk" id="informeshsk">
+            <label for="informeshsk">Imprimir Informes House Keeping: No Shows(cierre-cierre), Room Moves(cierre-cierre), 2*(Vacant & Occupied)</label>
+            <br>
+            <input type="checkbox" name="informesjefedesayunos" id="informesjefedesayunos">
+            <label for="informesjefedesayunos">Imprimir Informes para Jefe Desayunos: Desayuno Sin Level (summary hoy a semana que viene), Previsión Desayunos The Level (summary hoy a semana que viene) </label>
+            <br>
+            <input type="checkbox" name="informesfb" id="informesfb">
+            <label for="informesfb">Imprimir Informes F&B: Desayunos Noche (hoy a hoy)</label>
+            <br>
+            <input type="checkbox" name="policelist" id="policelist">
+            <label for="policelist">Enviar Police List y Imprimir</label>
+
+            <!-- Botón para resetear -->
+             <br>
+             <br>
+            <button type="reset">resetear</button>
+        </form>
+    </details>
+    <br>
+    <br>
+    <br>
+    <details>
+        <summary>Informe Night Audit</summary>
+        <form action="POST">
+            <input type="checkbox" name="responderatodos" id="responderatodos">
+            <label for="responderatodos">Outlook->Responder a todos</label>
+            <br>
+            <input type="checkbox" name="adjuntarreports" id="adjuntarreports">
+            <label for="adjuntarreports">Adjuntar 4 Reports al Night Audit: No Shows (cierre a cierre), Event List Detailed (hoy y mañana), hmobile task detailed (cierre-cierre), hmobile oportunities(ayer) </label>
+            <br>
+            <input type="checkbox" name="completarrooms" id="completarrooms">
+            <label for="completarrooms">Completar OOR OOS(hoy y search)</label>
+            <br>
+            <input type="checkbox" name="completarnoshows" id="completarnoshows">
+            <label for="completarnoshows">Completar No Shows (cierre a cierre)</label>
+            <br>
+            <input type="checkbox" name="historyforecast" id="historyforecast">
+            <label for="historyforecast">Completar History And Forecast (Net Revenue Marcado, cierre, hoy y mañana)</label>
+            <br>
+            <input type="checkbox" name="desayunostrasluzycenas" id="desayunostrasluzycenas">
+            <label for="desayunostrasluzycenas">Completar Desayuno sin Level (hoy y mañana) </label>
+            <br>
+            <input type="checkbox" name="historyforecastlevel" id="historyforecastlevel">
+            <label for="historyforecastlevel">Completar History & Forecast The Level (Net revenue Marcado, cierre hoy y mañana)</label>
+            <br>
+            <input type="checkbox" name="desayunoslevel" id="desayunoslevel">
+            <label for="desayunoslevel">Completar Previsión Desayunos The Level (Marcar Detailed, desmarcar non deduct inventory, hoy a hoy, ai2)</label>
+            <br>
+            <input type="checkbox" name="upselling" id="upselling">
+            <label for="upselling">Upselling (inicio mes- dia cerrado, transaction codes desmarcar upselling web, marcar net revenue) Grand Total poner en acumulado mes. rellenar objetivo primer dia del mes</label>
+            <br>
+            <input type="checkbox" name="capturapantalla" id="capturapantalla">
+            <label for="capturapantalla">Captura de pantalla y pegar al mail</label>
+            <br>
+            <input type="checkbox" name="enviarmail" id="enviarmail">
+            <label for="enviarmail">Enviar Mail Night Audit a las 06:00</label>
+             <!-- Botón para resetear -->
+             <br>
+             <br>
+            <button type="reset">resetear</button>
+        </form>
+    </details>
+    <br>
+    <br>
+    <br>
+    <details>
+        <summary>Orden archivos Night Audit</summary>
+        <ol>
+            <li>Visas en sobre</li>
+            <li>Excel caja recepción Night Audit 2 copias</li>
+            <li>Excel Entrega de Caja</li>
+            <li>Trial balance</li>
+            <li>Arqueo Caja-Recepción</li>
+            <li>Cierre Spa</li>
+            <li>Cierre Desayunos</li>
+            <li>Cierre Trasluz</li>
+            <li>Cierre Room Service</li>
+            <li>Cierre Bar Piscina</li>
+            <li>Rate Variance</li>
+            <li>Pagos a Cuenta</li>
+            <li>Parking</li>
+            <li>Lavandería</li>
+            <li>Puntos + Euros Reservas</li>
+            <li>Negative Posting</li>
+            <li>Deposit Ledger</li>
+            <li>Partes Viajeros Policia</li>
+            <li>No Shows</li>
+            <li>Minibares</li>
+        </ol>
+    </details>
+    <br>
+    <br>
+    <br>
+    <details>
+        <summary>Post-Cierre</summary>
+        <form action="POST">
+            <input type="checkbox" name="departures" id="departures">
+            <label for="departures">Departures</label>
+            <br>
+            <input type="checkbox" name="otrastareas" id="otrastareas">
+            <label for="otrastareas">Otras tareas: ordenar recepción, poner grapas y papel, cargar datáfonos, móviles y reponer barterias bicis</label>
+            <br>
+            <input type="checkbox" name="arqueopostcierre" id="arqueopostcierre">
+            <label for="arqueopostcierre">Hacer Arqueo caja turno a las 06:00</label>
+            <br>
+            <input type="checkbox" name="arrivals" id="arrivals">
+            <label for="arrivals">Arrivals</label>
+            <br>
+            <input type="checkbox" name="agendadietariorecepcion" id="agendadietariorecepcion">
+            <label for="agendadietariorecepcion">Traspasar info y archivar agenda dietario de recepción</label>
+            <br>
+            <input type="checkbox" name="revisaremail" id="revisaremail">
+            <label for="revisaremail">Revisar Email y asignaciones</label>
+            <!-- Botón para resetear -->
+            <br>
+            <br>
+           <button type="reset">resetear</button>
+        </form>
+    </details>
+</body>
+</html>
